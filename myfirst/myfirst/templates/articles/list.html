@@ -4,6 +4,16 @@
 
 
 {% block content %}
-Бла бла бла.....
+
+{% if latest_articles_list %}
+
+    {% for a in latest_articles_list %}
+        <a href="{% url 'articles:detail' a.id %}"> {{a.article_title}}</a>
+    {% endfor %}
+
+{% else %}
+    Стать не найдены
+
+{% endif %}
 
 {% endblock %}
